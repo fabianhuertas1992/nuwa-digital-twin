@@ -3,16 +3,22 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
+yarn.lock
 
 # Environment variables
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
 
 # Build outputs
 dist/
 build/
 *.tsbuildinfo
+*.js.map
+*.d.ts.map
 
 # IDE
 .vscode/
@@ -21,6 +27,8 @@ build/
 *.swo
 *~
 .DS_Store
+*.sublime-project
+*.sublime-workspace
 
 # Logs
 logs/
@@ -29,11 +37,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+pnpm-debug.log*
 
 # Testing
 coverage/
 .nyc_output/
 *.test.js.map
+.jest/
 
 # Python
 __pycache__/
@@ -45,20 +55,37 @@ venv/
 env/
 ENV/
 .venv
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+*.egg
+*.whl
+
+# Python virtual environments (specific paths)
+python-scripts/venv/
+python-scripts/.venv/
 
 # Database
 *.db
 *.sqlite
 *.sqlite3
+*.sql.gz
 
 # Temporary files
 tmp/
 temp/
 *.tmp
+*.temp
 
 # OS
 .DS_Store
 Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
 
 # Sensitive files
 *.pem
@@ -66,3 +93,26 @@ Thumbs.db
 *.cert
 wallet.json
 wallet.dat
+*.secret
+*.credentials
+
+# Google Earth Engine
+*.json.encrypted
+gee-credentials.json
+
+# IPFS
+.ipfs/
+
+# Cardano/Blockchain
+*.skey
+*.vkey
+*.addr
+
+# Data files (optional - uncomment if you don't want to track test data)
+# data/*.json
+# !data/.gitkeep
+
+# Backup files
+*.bak
+*.backup
+*~
