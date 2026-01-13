@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022"],
+    "moduleResolution": "node",
+    "rootDir": ".",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./backend/*"],
+      "@api/*": ["./backend/api/*"],
+      "@services/*": ["./backend/services/*"],
+      "@models/*": ["./backend/models/*"],
+      "@utils/*": ["./backend/utils/*"],
+      "@types/*": ["./backend/types/*"]
+    }
+  },
+  "include": ["backend/**/*", "python-scripts/**/*.ts"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}

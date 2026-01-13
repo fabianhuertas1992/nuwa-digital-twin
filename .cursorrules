@@ -1,0 +1,134 @@
+# NUWA Digital Twin - Cursor AI Rules
+
+## Project Context
+This is a SaaS platform for tokenizing verified carbon credits from agroforestry systems. 
+We're building the "Digital Twin" module that creates blockchain-backed representations of farms.
+
+## Tech Stack
+- **Backend**: Node.js 20+ with TypeScript (strict mode)
+- **Framework**: Express.js with RESTful APIs
+- **Database**: PostgreSQL 15+ with PostGIS extension
+- **Python**: 3.10+ for geospatial processing (Google Earth Engine)
+- **Blockchain**: Cardano (Plutus smart contracts)
+- **Frontend** (future): Next.js 14+ with TypeScript
+
+## Code Style & Conventions
+
+### TypeScript
+- Use strict mode always
+- Prefer `async/await` over raw promises
+- Use ES6+ features (destructuring, spread, etc.)
+- Add JSDoc comments for public APIs
+- Use explicit return types for functions
+- Prefer interfaces over types for object shapes
+
+### File Naming
+- Source files: `kebab-case.ts` (e.g., `farm-service.ts`)
+- Test files: `kebab-case.test.ts` (e.g., `farm-service.test.ts`)
+- Classes: `PascalCase` (e.g., `FarmController`, `GEEService`)
+- Functions/methods: `camelCase` (e.g., `calculateNDVI`, `analyzeDeforestation`)
+- Constants: `UPPER_SNAKE_CASE` (e.g., `API_VERSION`, `MAX_FILE_SIZE`)
+- Types/Interfaces: `PascalCase` (e.g., `NDVIResult`, `FarmBaseline`)
+
+### Project Structure
+```
+/backend          - Node.js/Express API server
+  /api
+    /routes       - Express route definitions
+    /controllers  - HTTP request handlers (thin layer)
+    /middleware   - Auth, validation, error handling
+  /services       - Business logic (GEE, IPFS, blockchain)
+  /models         - Database models (Sequelize/TypeORM)
+  /utils          - Helper functions, utilities
+  /types          - TypeScript type definitions
+/python-scripts   - Google Earth Engine processing
+/blockchain       - Cardano smart contracts (Plutus)
+/frontend         - Next.js application (future phase)
+/docs             - Documentation, specs, diagrams
+/tests            - Integration and E2E tests
+```
+
+## Architecture Principles
+1. **Separation of Concerns**: Controllers handle HTTP, services handle logic
+2. **Single Responsibility**: Each file/class does one thing well
+3. **Dependency Injection**: Pass dependencies explicitly
+4. **Error Handling**: Always use try-catch, return proper HTTP codes
+5. **Validation**: Validate inputs at API boundary (middleware)
+6. **Logging**: Use structured logging (JSON format)
+
+## API Design
+- Use RESTful conventions
+- Version APIs: `/api/v1/resource`
+- Use HTTP verbs correctly: GET (read), POST (create), PUT/PATCH (update), DELETE (delete)
+- Return consistent JSON responses:
+```json
+  {
+    "success": true,
+    "data": { ... },
+    "message": "Optional message"
+  }
+```
+- For errors:
+```json
+  {
+    "success": false,
+    "error": "Error message",
+    "code": "ERROR_CODE",
+    "details": { ... }
+  }
+```
+
+## Environment Variables
+- Always use `.env` for configuration
+- Never commit secrets or credentials
+- Use `.env.example` as template
+- Prefix with service name: `GEE_`, `DB_`, `IPFS_`, etc.
+
+## Database
+- Use migrations for schema changes
+- Always add indexes for foreign keys and frequently queried fields
+- Use transactions for multi-step operations
+- Use PostGIS for geospatial data
+
+## Python Scripts
+- Use argparse for CLI arguments
+- Return JSON to stdout for easy parsing
+- Use virtual environment (venv)
+- Requirements in `requirements.txt`
+
+## Error Handling
+- Catch specific errors, not generic Exception
+- Log errors with context (user ID, request ID, etc.)
+- Return appropriate HTTP status codes
+- Never expose internal errors to users
+
+## Testing (when implemented)
+- Unit tests for services and utilities
+- Integration tests for API endpoints
+- Use meaningful test descriptions
+- Aim for >80% coverage on critical paths
+
+## Git Commit Messages
+- Format: `type(scope): message`
+- Types: feat, fix, docs, refactor, test, chore
+- Example: `feat(gee): add NDVI time series calculation`
+
+## When Creating New Code
+1. Check if similar functionality exists
+2. Follow existing patterns in the codebase
+3. Add proper error handling
+4. Add logging for debugging
+5. Update relevant documentation
+
+## When Refactoring
+1. Keep changes focused and atomic
+2. Don't mix refactoring with feature additions
+3. Ensure tests still pass
+4. Update documentation if behavior changes
+
+## Priority Features for Current Phase
+1. ✅ NDVI calculation from Sentinel-2
+2. ✅ Deforestation analysis (EUDR compliance)
+3. ✅ Carbon baseline calculation
+4. ⏳ IPFS storage for imagery
+5. ⏳ NFT minting on Cardano
