@@ -1,0 +1,55 @@
+{
+  "cardanoNFT": {
+    "721": {
+      "POLICY_ID_PLACEHOLDER": {
+        "farm-fedar-(1)": {
+          "name": "Digital Twin - PoligonoFedar",
+          "description": "Verified carbon baseline and EUDR compliance certificate for PoligonoFedar",
+          "image": "ipfs://QmDRY_RUN_HASH_Fedar (1)_analysis",
+          "mediaType": "application/json",
+          "files": [
+            {
+              "name": "Farm Analysis Data",
+              "mediaType": "application/json",
+              "src": "ipfs://QmDRY_RUN_HASH_Fedar (1)_analysis"
+            }
+          ],
+          "attributes": {
+            "Farm ID": "farm-fedar-(1)",
+            "Owner": null,
+            "Location": "{}",
+            "Baseline Carbon (tCO2e)": 6061.03,
+            "NDVI Mean": 0.738,
+            "EUDR Compliant": "Yes",
+            "Deforestation %": 2.6,
+            "Area (ha)": 45.6693,
+            "Methodology": "VM0042",
+            "Analysis Date": "2026-01-14T11:23:17.456020",
+            "IPFS Hash": "QmDRY_RUN_HASH_Fedar (1)_analysis"
+          }
+        }
+      }
+    }
+  },
+  "simple": {
+    "type": "FarmDigitalTwin",
+    "version": "1.0",
+    "farmId": "farm-fedar-(1)",
+    "name": "PoligonoFedar",
+    "owner": null,
+    "location": {},
+    "metrics": {
+      "baselineCarbonTCO2e": 6061.03,
+      "ndviMean": 0.738,
+      "eudrCompliant": true,
+      "deforestationPercent": 2.6,
+      "areaHa": 45.6693
+    },
+    "ipfs": {
+      "analysisHash": "QmDRY_RUN_HASH_Fedar (1)_analysis",
+      "analysisUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_Fedar (1)_analysis"
+    },
+    "verificationDate": "2026-01-14T15:26:37.819447",
+    "methodology": "Verra VM0042"
+  }
+}

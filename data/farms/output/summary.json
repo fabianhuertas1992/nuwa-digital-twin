@@ -1,0 +1,76 @@
+{
+  "processedAt": "2026-01-14T11:23:56.853287",
+  "totalFarms": 5,
+  "successfulAnalyses": 5,
+  "failedAnalyses": 0,
+  "totalArea": 109.96000000000001,
+  "totalCarbon": 15751.539999999999,
+  "eudrCompliant": 3,
+  "results": [
+    {
+      "filename": "El_Sinai.json",
+      "success": true,
+      "error": null,
+      "name": "194730002000000050047000000000",
+      "farmId": "farm-el_sinai",
+      "areaHa": 17.7,
+      "ndvi": 0.73,
+      "eudrCompliant": false,
+      "deforestationPercent": 14.67,
+      "carbonTCO2e": 2129.88,
+      "outputFile": "data/farms/output/El_Sinai_analysis.json"
+    },
+    {
+      "filename": "Fedar (1).geojson",
+      "success": true,
+      "error": null,
+      "name": "PoligonoFedar",
+      "farmId": "farm-fedar-(1)",
+      "areaHa": 45.67,
+      "ndvi": 0.738,
+      "eudrCompliant": true,
+      "deforestationPercent": 2.6,
+      "carbonTCO2e": 6061.03,
+      "outputFile": "data/farms/output/Fedar (1)_analysis.json"
+    },
+    {
+      "filename": "Granja_paraiso (1).geojson",
+      "success": true,
+      "error": null,
+      "name": "Area",
+      "farmId": "farm-granja_paraiso-(1)",
+      "areaHa": 26.22,
+      "ndvi": 0.705,
+      "eudrCompliant": false,
+      "deforestationPercent": 7.08,
+      "carbonTCO2e": 4130.37,
+      "outputFile": "data/farms/output/Granja_paraiso (1)_analysis.json"
+    },
+    {
+      "filename": "Patio Bonito (1).geojson",
+      "success": true,
+      "error": null,
+      "name": "Poligono",
+      "farmId": "farm-patio-bonito-(1)",
+      "areaHa": 19.14,
+      "ndvi": 0.766,
+      "eudrCompliant": true,
+      "deforestationPercent": 0.45,
+      "carbonTCO2e": 3414.24,
+      "outputFile": "data/farms/output/Patio Bonito (1)_analysis.json"
+    },
+    {
+      "filename": "finca_libano.json",
+      "success": true,
+      "error": null,
+      "name": "Finca Libano",
+      "farmId": "farm-libano-001",
+      "areaHa": 1.23,
+      "ndvi": 0.067,
+      "eudrCompliant": true,
+      "deforestationPercent": 0,
+      "carbonTCO2e": 16.02,
+      "outputFile": "data/farms/output/finca_libano_analysis.json"
+    }
+  ]
+}

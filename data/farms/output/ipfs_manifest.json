@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "createdAt": "2026-01-14T15:26:37.820736",
+  "totalFarms": 4,
+  "eligibleFarms": 4,
+  "totalCarbonTCO2e": 15552.32,
+  "farms": [
+    {
+      "filename": "Fedar (1)_analysis.json",
+      "farmName": "PoligonoFedar",
+      "ipfsHash": "QmDRY_RUN_HASH_Fedar (1)_analysis",
+      "ipfsUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_Fedar (1)_analysis",
+      "metadataFile": "data/farms/output/Fedar (1)_analysis_metadata.json",
+      "eudrCompliant": true,
+      "carbonTCO2e": 6061.03
+    },
+    {
+      "filename": "Patio Bonito (1)_analysis.json",
+      "farmName": "Poligono",
+      "ipfsHash": "QmDRY_RUN_HASH_Patio Bonito (1)_ana",
+      "ipfsUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_Patio Bonito (1)_ana",
+      "metadataFile": "data/farms/output/Patio Bonito (1)_analysis_metadata.json",
+      "eudrCompliant": true,
+      "carbonTCO2e": 3414.24
+    },
+    {
+      "filename": "finca_libano_analysis.json",
+      "farmName": "Finca Libano",
+      "ipfsHash": "QmDRY_RUN_HASH_finca_libano_analysi",
+      "ipfsUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_finca_libano_analysi",
+      "metadataFile": "data/farms/output/finca_libano_analysis_metadata.json",
+      "eudrCompliant": true,
+      "carbonTCO2e": 16.02
+    },
+    {
+      "filename": "test_farm_analysis.json",
+      "farmName": "Finca Líbano",
+      "ipfsHash": "QmDRY_RUN_HASH_test_farm_analysis",
+      "ipfsUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_test_farm_analysis",
+      "metadataFile": "data/farms/output/test_farm_analysis_metadata.json",
+      "eudrCompliant": true,
+      "carbonTCO2e": 6061.03
+    }
+  ]
+}

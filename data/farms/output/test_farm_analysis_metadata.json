@@ -1,0 +1,55 @@
+{
+  "cardanoNFT": {
+    "721": {
+      "POLICY_ID_PLACEHOLDER": {
+        "farm-libano-001": {
+          "name": "Digital Twin - Finca Líbano",
+          "description": "Verified carbon baseline and EUDR compliance certificate for Finca Líbano",
+          "image": "ipfs://QmDRY_RUN_HASH_test_farm_analysis",
+          "mediaType": "application/json",
+          "files": [
+            {
+              "name": "Farm Analysis Data",
+              "mediaType": "application/json",
+              "src": "ipfs://QmDRY_RUN_HASH_test_farm_analysis"
+            }
+          ],
+          "attributes": {
+            "Farm ID": "farm-libano-001",
+            "Owner": "N/A",
+            "Location": "{}",
+            "Baseline Carbon (tCO2e)": 6061.03,
+            "NDVI Mean": 0.738,
+            "EUDR Compliant": "Yes",
+            "Deforestation %": 2.6,
+            "Area (ha)": 45.6693,
+            "Methodology": "VM0042",
+            "Analysis Date": "2026-01-14T09:14:13.445937",
+            "IPFS Hash": "QmDRY_RUN_HASH_test_farm_analysis"
+          }
+        }
+      }
+    }
+  },
+  "simple": {
+    "type": "FarmDigitalTwin",
+    "version": "1.0",
+    "farmId": "farm-libano-001",
+    "name": "Finca Líbano",
+    "owner": "N/A",
+    "location": {},
+    "metrics": {
+      "baselineCarbonTCO2e": 6061.03,
+      "ndviMean": 0.738,
+      "eudrCompliant": true,
+      "deforestationPercent": 2.6,
+      "areaHa": 45.6693
+    },
+    "ipfs": {
+      "analysisHash": "QmDRY_RUN_HASH_test_farm_analysis",
+      "analysisUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_test_farm_analysis"
+    },
+    "verificationDate": "2026-01-14T15:26:37.820597",
+    "methodology": "Verra VM0042"
+  }
+}

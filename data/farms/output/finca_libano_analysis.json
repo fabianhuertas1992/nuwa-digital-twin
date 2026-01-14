@@ -1,0 +1,98 @@
+{
+  "farmInfo": {
+    "name": "Finca Libano",
+    "farmId": "farm-libano-001",
+    "owner": "Juan Perez",
+    "location": {
+      "municipality": "Libano",
+      "department": "Tolima",
+      "country": "Colombia"
+    }
+  },
+  "polygon": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -75.0639,
+          4.9214
+        ],
+        [
+          -75.0629,
+          4.9214
+        ],
+        [
+          -75.0629,
+          4.9204
+        ],
+        [
+          -75.0639,
+          4.9204
+        ],
+        [
+          -75.0639,
+          4.9214
+        ]
+      ]
+    ]
+  },
+  "metadata": {
+    "areaHa": 1.23,
+    "crops": [
+      "cafe",
+      "platano"
+    ],
+    "registrationDate": "2024-01-15"
+  },
+  "analysis": {
+    "ndvi": {
+      "mean": 0.067,
+      "median": 0.033,
+      "std": 0.105,
+      "min": -0.057,
+      "max": 0.616,
+      "imageUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/95b837b52c8c5f17b7baa28d51b91bd7-e698a931b78b3fddfa650b5b141d5094:getPixels",
+      "imagesUsed": 2,
+      "dateRange": "2024-01-01 to 2024-12-31",
+      "timestamp": "2026-01-14T11:23:50.944194"
+    },
+    "deforestation": {
+      "deforestationPercent": 0,
+      "areaLostHa": 0.0,
+      "initialForestHa": 0.0,
+      "compliant": true,
+      "historicalImages": [
+        {
+          "year": 2023,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/25dcf77af936f2b878e8c4126ca8181a-0ff5e067a500e6bcca71e15224b685a2:getPixels"
+        },
+        {
+          "year": 2024,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/89ad76feccf74f7fc31362f0ae4b678d-ee22832193c1d1c7dc6b09cf472eedff:getPixels"
+        }
+      ],
+      "changeDetectionUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/c7c5dbd8074e092581740c3c8cec286d-c5624d2f333e58a517018abc4b9ac6fa:getPixels",
+      "analysisDate": "2026-01-14T11:23:56.722679",
+      "methodology": "Hansen GFC + Sentinel-2 validation",
+      "periodAnalyzed": "2021 - 2026"
+    },
+    "carbon": {
+      "baselineCarbonTCO2e": 16.02,
+      "agbTonnesPerHa": 6.29,
+      "totalAgbTonnes": 7.74,
+      "totalCarbonTonnes": 4.37,
+      "areaHa": 1.2319,
+      "methodology": "field",
+      "confidence": "high",
+      "treesAnalyzed": 225,
+      "calculationDate": "2026-01-14T11:23:56.851663",
+      "equation": "Chave et al. 2014 (pantropical)",
+      "verraMethodology": "VM0042",
+      "breakdown": {
+        "abovegroundBiomass": 3.64,
+        "belowgroundBiomass": 0.73
+      }
+    }
+  },
+  "generatedAt": "2026-01-14T11:23:56.851695"
+}

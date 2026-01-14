@@ -1,0 +1,147 @@
+{
+  "farmInfo": {
+    "name": "Area",
+    "farmId": "farm-granja_paraiso-(1)",
+    "owner": null,
+    "location": {}
+  },
+  "polygon": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -76.5292274951935,
+          2.69176414649828
+        ],
+        [
+          -76.52930796146394,
+          2.689647537507
+        ],
+        [
+          -76.5287232398987,
+          2.68903666739344
+        ],
+        [
+          -76.524099111557,
+          2.68927244185948
+        ],
+        [
+          -76.52375042438509,
+          2.68940640460399
+        ],
+        [
+          -76.52373969554903,
+          2.68952965031594
+        ],
+        [
+          -76.52327835559846,
+          2.68961538645602
+        ],
+        [
+          -76.5229779481888,
+          2.69004942557276
+        ],
+        [
+          -76.52237713336946,
+          2.69106754141318
+        ],
+        [
+          -76.52245223522188,
+          2.69204278842084
+        ],
+        [
+          -76.52312815189363,
+          2.69247146817727
+        ],
+        [
+          -76.5242385864258,
+          2.69258935508385
+        ],
+        [
+          -76.52677595615388,
+          2.69273939294845
+        ],
+        [
+          -76.5292274951935,
+          2.69176414649828
+        ]
+      ]
+    ]
+  },
+  "metadata": {
+    "Name": "Area",
+    "Description": "",
+    "Color": "green",
+    "Perimeter": 2038.3977036139252,
+    "Area": 262818.37748612894,
+    "Volume": null,
+    "Cut": null,
+    "Fill": null,
+    "BaseSurface": null,
+    "Display": "area",
+    "UnitSystem": "metric"
+  },
+  "analysis": {
+    "ndvi": {
+      "mean": 0.705,
+      "median": 0.752,
+      "std": 0.152,
+      "min": 0.074,
+      "max": 0.925,
+      "imageUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/1eac83e01bafc4b07622f4afb3040e0d-77062e5eb302dc2d20d005338319755f:getPixels",
+      "imagesUsed": 16,
+      "dateRange": "2024-01-01 to 2024-12-31",
+      "timestamp": "2026-01-14T11:23:19.347976"
+    },
+    "deforestation": {
+      "deforestationPercent": 7.08,
+      "areaLostHa": 1.33,
+      "initialForestHa": 18.77,
+      "compliant": false,
+      "historicalImages": [
+        {
+          "year": 2021,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/31fc39f69f46e413014e8539bdcd56f6-3ad33fd2174530615744339e00e4ea4c:getPixels"
+        },
+        {
+          "year": 2022,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/505e176f4085abff35e5407897bb8e92-938d9baf8bbaff8b5a72185fe8193db9:getPixels"
+        },
+        {
+          "year": 2023,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/93bc095e0c6160cb4bda98c9de5b7711-a00323e3b9daacf400a4502289b188d0:getPixels"
+        },
+        {
+          "year": 2024,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/7e152b954b5db155a81f93c3346ac1ef-9910651f7da2aa6c22e928d7d1f3a913:getPixels"
+        },
+        {
+          "year": 2025,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/9af30ca0c3aa5f98d42532d5f698f83e-68496ba9c6600b1739127a01676782f7:getPixels"
+        }
+      ],
+      "changeDetectionUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/e347e86390d2adf00d9130cb51cada66-0f1d734738f3073a6aa50d7b55d9345b:getPixels",
+      "analysisDate": "2026-01-14T11:23:25.977535",
+      "methodology": "Hansen GFC + Sentinel-2 validation",
+      "periodAnalyzed": "2021 - 2026"
+    },
+    "carbon": {
+      "baselineCarbonTCO2e": 4130.37,
+      "agbTonnesPerHa": 76.16,
+      "totalAgbTonnes": 1997.28,
+      "totalCarbonTonnes": 1126.46,
+      "areaHa": 26.2231,
+      "methodology": "satellite",
+      "confidence": "medium",
+      "treesAnalyzed": 0,
+      "calculationDate": "2026-01-14T11:23:27.640960",
+      "equation": "Chave et al. 2014 (pantropical)",
+      "verraMethodology": "VM0042",
+      "breakdown": {
+        "abovegroundBiomass": 938.72,
+        "belowgroundBiomass": 187.74
+      }
+    }
+  },
+  "generatedAt": "2026-01-14T11:23:27.641080"
+}

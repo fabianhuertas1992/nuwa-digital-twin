@@ -1,0 +1,55 @@
+{
+  "cardanoNFT": {
+    "721": {
+      "POLICY_ID_PLACEHOLDER": {
+        "farm-granja_paraiso-(1)": {
+          "name": "Digital Twin - Area",
+          "description": "Verified carbon baseline and EUDR compliance certificate for Area",
+          "image": "ipfs://QmDRY_RUN_HASH_Granja_paraiso (1)_a",
+          "mediaType": "application/json",
+          "files": [
+            {
+              "name": "Farm Analysis Data",
+              "mediaType": "application/json",
+              "src": "ipfs://QmDRY_RUN_HASH_Granja_paraiso (1)_a"
+            }
+          ],
+          "attributes": {
+            "Farm ID": "farm-granja_paraiso-(1)",
+            "Owner": null,
+            "Location": "{}",
+            "Baseline Carbon (tCO2e)": 4130.37,
+            "NDVI Mean": 0.705,
+            "EUDR Compliant": "No",
+            "Deforestation %": 7.08,
+            "Area (ha)": 26.2231,
+            "Methodology": "VM0042",
+            "Analysis Date": "2026-01-14T11:23:27.640960",
+            "IPFS Hash": "QmDRY_RUN_HASH_Granja_paraiso (1)_a"
+          }
+        }
+      }
+    }
+  },
+  "simple": {
+    "type": "FarmDigitalTwin",
+    "version": "1.0",
+    "farmId": "farm-granja_paraiso-(1)",
+    "name": "Area",
+    "owner": null,
+    "location": {},
+    "metrics": {
+      "baselineCarbonTCO2e": 4130.37,
+      "ndviMean": 0.705,
+      "eudrCompliant": false,
+      "deforestationPercent": 7.08,
+      "areaHa": 26.2231
+    },
+    "ipfs": {
+      "analysisHash": "QmDRY_RUN_HASH_Granja_paraiso (1)_a",
+      "analysisUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_Granja_paraiso (1)_a"
+    },
+    "verificationDate": "2026-01-14T15:26:37.819801",
+    "methodology": "Verra VM0042"
+  }
+}

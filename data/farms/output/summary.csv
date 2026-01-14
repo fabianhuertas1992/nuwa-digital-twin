@@ -1,0 +1,6 @@
+filename,name,farmId,areaHa,ndvi,eudrCompliant,deforestationPercent,carbonTCO2e,success,error
+El_Sinai.json,194730002000000050047000000000,farm-el_sinai,17.7,0.73,No,14.67,2129.88,Sí,
+Fedar (1).geojson,PoligonoFedar,farm-fedar-(1),45.67,0.738,Sí,2.6,6061.03,Sí,
+Granja_paraiso (1).geojson,Area,farm-granja_paraiso-(1),26.22,0.705,No,7.08,4130.37,Sí,
+Patio Bonito (1).geojson,Poligono,farm-patio-bonito-(1),19.14,0.766,Sí,0.45,3414.24,Sí,
+finca_libano.json,Finca Libano,farm-libano-001,1.23,0.067,Sí,0,16.02,Sí,

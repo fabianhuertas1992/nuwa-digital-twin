@@ -1,0 +1,27 @@
+[
+  {
+    "species": "Pinus caribaea",
+    "dbh_cm": 25,
+    "height_m": 15
+  },
+  {
+    "species": "Pinus caribaea",
+    "dbh_cm": 30,
+    "height_m": 18
+  },
+  {
+    "species": "Eucalyptus",
+    "dbh_cm": 28,
+    "height_m": 16
+  },
+  {
+    "species": "Acacia",
+    "dbh_cm": 22,
+    "height_m": 12
+  },
+  {
+    "species": "Pinus caribaea",
+    "dbh_cm": 35,
+    "height_m": 20
+  }
+]

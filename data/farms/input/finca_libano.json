@@ -1,0 +1,45 @@
+{
+  "name": "Finca Libano",
+  "farmId": "farm-libano-001",
+  "owner": "Juan Perez",
+  "location": {
+    "municipality": "Libano",
+    "department": "Tolima",
+    "country": "Colombia"
+  },
+  "polygon": {
+    "type": "Polygon",
+    "coordinates": [[
+      [-75.0639, 4.9214],
+      [-75.0629, 4.9214],
+      [-75.0629, 4.9204],
+      [-75.0639, 4.9204],
+      [-75.0639, 4.9214]
+    ]]
+  },
+  "metadata": {
+    "areaHa": 1.23,
+    "crops": ["cafe", "platano"],
+    "registrationDate": "2024-01-15"
+  },
+  "treeInventory": [
+    {
+      "species": "Coffea arabica",
+      "dbh_cm": 8,
+      "height_m": 3,
+      "count": 200
+    },
+    {
+      "species": "Inga",
+      "dbh_cm": 25,
+      "height_m": 12,
+      "count": 15
+    },
+    {
+      "species": "Cordia alliodora",
+      "dbh_cm": 30,
+      "height_m": 15,
+      "count": 10
+    }
+  ]
+}

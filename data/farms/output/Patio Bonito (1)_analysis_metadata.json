@@ -1,0 +1,55 @@
+{
+  "cardanoNFT": {
+    "721": {
+      "POLICY_ID_PLACEHOLDER": {
+        "farm-patio-bonito-(1)": {
+          "name": "Digital Twin - Poligono",
+          "description": "Verified carbon baseline and EUDR compliance certificate for Poligono",
+          "image": "ipfs://QmDRY_RUN_HASH_Patio Bonito (1)_ana",
+          "mediaType": "application/json",
+          "files": [
+            {
+              "name": "Farm Analysis Data",
+              "mediaType": "application/json",
+              "src": "ipfs://QmDRY_RUN_HASH_Patio Bonito (1)_ana"
+            }
+          ],
+          "attributes": {
+            "Farm ID": "farm-patio-bonito-(1)",
+            "Owner": null,
+            "Location": "{}",
+            "Baseline Carbon (tCO2e)": 3414.24,
+            "NDVI Mean": 0.766,
+            "EUDR Compliant": "Yes",
+            "Deforestation %": 0.45,
+            "Area (ha)": 19.1426,
+            "Methodology": "VM0042",
+            "Analysis Date": "2026-01-14T11:23:47.867710",
+            "IPFS Hash": "QmDRY_RUN_HASH_Patio Bonito (1)_ana"
+          }
+        }
+      }
+    }
+  },
+  "simple": {
+    "type": "FarmDigitalTwin",
+    "version": "1.0",
+    "farmId": "farm-patio-bonito-(1)",
+    "name": "Poligono",
+    "owner": null,
+    "location": {},
+    "metrics": {
+      "baselineCarbonTCO2e": 3414.24,
+      "ndviMean": 0.766,
+      "eudrCompliant": true,
+      "deforestationPercent": 0.45,
+      "areaHa": 19.1426
+    },
+    "ipfs": {
+      "analysisHash": "QmDRY_RUN_HASH_Patio Bonito (1)_ana",
+      "analysisUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_Patio Bonito (1)_ana"
+    },
+    "verificationDate": "2026-01-14T15:26:37.820069",
+    "methodology": "Verra VM0042"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "cardanoNFT": {
+    "721": {
+      "POLICY_ID_PLACEHOLDER": {
+        "farm-el_sinai": {
+          "name": "Digital Twin - 194730002000000050047000000000",
+          "description": "Verified carbon baseline and EUDR compliance certificate for 194730002000000050047000000000",
+          "image": "ipfs://QmDRY_RUN_HASH_El_Sinai_analysis",
+          "mediaType": "application/json",
+          "files": [
+            {
+              "name": "Farm Analysis Data",
+              "mediaType": "application/json",
+              "src": "ipfs://QmDRY_RUN_HASH_El_Sinai_analysis"
+            }
+          ],
+          "attributes": {
+            "Farm ID": "farm-el_sinai",
+            "Owner": null,
+            "Location": "{}",
+            "Baseline Carbon (tCO2e)": 2129.88,
+            "NDVI Mean": 0.73,
+            "EUDR Compliant": "No",
+            "Deforestation %": 14.67,
+            "Area (ha)": 17.7017,
+            "Methodology": "VM0042",
+            "Analysis Date": "2026-01-14T11:23:05.524258",
+            "IPFS Hash": "QmDRY_RUN_HASH_El_Sinai_analysis"
+          }
+        }
+      }
+    }
+  },
+  "simple": {
+    "type": "FarmDigitalTwin",
+    "version": "1.0",
+    "farmId": "farm-el_sinai",
+    "name": "194730002000000050047000000000",
+    "owner": null,
+    "location": {},
+    "metrics": {
+      "baselineCarbonTCO2e": 2129.88,
+      "ndviMean": 0.73,
+      "eudrCompliant": false,
+      "deforestationPercent": 14.67,
+      "areaHa": 17.7017
+    },
+    "ipfs": {
+      "analysisHash": "QmDRY_RUN_HASH_El_Sinai_analysis",
+      "analysisUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_El_Sinai_analysis"
+    },
+    "verificationDate": "2026-01-14T15:26:37.818687",
+    "methodology": "Verra VM0042"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "farmInfo": {
+    "name": "Poligono",
+    "farmId": "farm-patio-bonito-(1)",
+    "owner": null,
+    "location": {}
+  },
+  "polygon": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -76.5533085144125,
+          2.81344114365888
+        ],
+        [
+          -76.55223563080654,
+          2.81352151293655
+        ],
+        [
+          -76.55183329945432,
+          2.8135268708882
+        ],
+        [
+          -76.54961243038997,
+          2.81289999037837
+        ],
+        [
+          -76.5495265997015,
+          2.81197842183758
+        ],
+        [
+          -76.549794820603,
+          2.81103006275351
+        ],
+        [
+          -76.54983773594725,
+          2.81064964731107
+        ],
+        [
+          -76.54996648197994,
+          2.8097709407447
+        ],
+        [
+          -76.55035808449612,
+          2.80932622924259
+        ],
+        [
+          -76.55058331671172,
+          2.80931998176476
+        ],
+        [
+          -76.55077643576078,
+          2.80936016654623
+        ],
+        [
+          -76.55176080646926,
+          2.80957180637244
+        ],
+        [
+          -76.55183859053068,
+          2.80968968170206
+        ],
+        [
+          -76.55198879423553,
+          2.80969236068669
+        ],
+        [
+          -76.55217923107558,
+          2.80970843459431
+        ],
+        [
+          -76.55439763795586,
+          2.81020671515615
+        ],
+        [
+          -76.55365734826773,
+          2.81290712734121
+        ],
+        [
+          -76.5533085144125,
+          2.81344114365888
+        ]
+      ]
+    ]
+  },
+  "metadata": {
+    "Name": "Poligono",
+    "Description": "",
+    "Color": "red",
+    "Perimeter": 1616.3855026087406,
+    "Area": 191855.16667320122,
+    "Volume": null,
+    "Cut": null,
+    "Fill": null,
+    "BaseSurface": null,
+    "Display": "area",
+    "UnitSystem": "metric"
+  },
+  "analysis": {
+    "ndvi": {
+      "mean": 0.766,
+      "median": 0.81,
+      "std": 0.122,
+      "min": 0.123,
+      "max": 0.911,
+      "imageUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/17f487967a82ec2576a832466c7b8f25-549bd69e1daf5e23ba38a2428f2686eb:getPixels",
+      "imagesUsed": 6,
+      "dateRange": "2024-01-01 to 2024-12-31",
+      "timestamp": "2026-01-14T11:23:29.559617"
+    },
+    "deforestation": {
+      "deforestationPercent": 0.45,
+      "areaLostHa": 0.08,
+      "initialForestHa": 18.6,
+      "compliant": true,
+      "historicalImages": [
+        {
+          "year": 2021,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/c1253b5fb4d6ba613015166168af3b14-a03435eca47c3e92efdc0ede7c5e72e4:getPixels"
+        },
+        {
+          "year": 2022,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/f0e616c40a6dbbec0538cc866edbe3ae-43930cbcb79651c9e9f8176b42fca17c:getPixels"
+        },
+        {
+          "year": 2023,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/2cf1cc206374e1486f50496ad66272ff-23a6ab0b25cf5c3086284491e30d9a61:getPixels"
+        },
+        {
+          "year": 2024,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/b1042a45fb4df9eab0b717bac758d9ee-70e660abc467cbedd65d4cefb8390c62:getPixels"
+        },
+        {
+          "year": 2025,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/d36992e18198c24f7ef322e8efa5da60-c7b16f38b6a3163d89430a8c32649ee4:getPixels"
+        }
+      ],
+      "changeDetectionUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/2fc14e8b36fe98a4ecddcf4adc6104c3-3986155910b67876e4dedd0da88c15ac:getPixels",
+      "analysisDate": "2026-01-14T11:23:46.197422",
+      "methodology": "Hansen GFC + Sentinel-2 validation",
+      "periodAnalyzed": "2021 - 2026"
+    },
+    "carbon": {
+      "baselineCarbonTCO2e": 3414.24,
+      "agbTonnesPerHa": 86.25,
+      "totalAgbTonnes": 1650.98,
+      "totalCarbonTonnes": 931.16,
+      "areaHa": 19.1426,
+      "methodology": "satellite",
+      "confidence": "medium",
+      "treesAnalyzed": 0,
+      "calculationDate": "2026-01-14T11:23:47.867710",
+      "equation": "Chave et al. 2014 (pantropical)",
+      "verraMethodology": "VM0042",
+      "breakdown": {
+        "abovegroundBiomass": 775.96,
+        "belowgroundBiomass": 155.19
+      }
+    }
+  },
+  "generatedAt": "2026-01-14T11:23:47.867761"
+}
