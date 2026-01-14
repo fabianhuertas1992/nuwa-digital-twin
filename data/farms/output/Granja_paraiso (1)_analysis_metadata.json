@@ -5,13 +5,13 @@
         "farm-granja_paraiso-(1)": {
           "name": "Digital Twin - Area",
           "description": "Verified carbon baseline and EUDR compliance certificate for Area",
-          "image": "ipfs://QmDRY_RUN_HASH_Granja_paraiso (1)_a",
+          "image": "ipfs://bafkreifpmmpekyluruet2nv5rg3od6lrzg2ylfv2nsuws6h4lxk5hkesvq",
           "mediaType": "application/json",
           "files": [
             {
               "name": "Farm Analysis Data",
               "mediaType": "application/json",
-              "src": "ipfs://QmDRY_RUN_HASH_Granja_paraiso (1)_a"
+              "src": "ipfs://bafkreifpmmpekyluruet2nv5rg3od6lrzg2ylfv2nsuws6h4lxk5hkesvq"
             }
           ],
           "attributes": {
@@ -25,7 +25,7 @@
             "Area (ha)": 26.2231,
             "Methodology": "VM0042",
             "Analysis Date": "2026-01-14T11:23:27.640960",
-            "IPFS Hash": "QmDRY_RUN_HASH_Granja_paraiso (1)_a"
+            "IPFS Hash": "bafkreifpmmpekyluruet2nv5rg3od6lrzg2ylfv2nsuws6h4lxk5hkesvq"
           }
         }
       }
@@ -46,10 +46,10 @@
       "areaHa": 26.2231
     },
     "ipfs": {
-      "analysisHash": "QmDRY_RUN_HASH_Granja_paraiso (1)_a",
-      "analysisUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_Granja_paraiso (1)_a"
+      "analysisHash": "bafkreifpmmpekyluruet2nv5rg3od6lrzg2ylfv2nsuws6h4lxk5hkesvq",
+      "analysisUrl": "https://gateway.pinata.cloud/ipfs/bafkreifpmmpekyluruet2nv5rg3od6lrzg2ylfv2nsuws6h4lxk5hkesvq"
     },
-    "verificationDate": "2026-01-14T15:26:37.819801",
+    "verificationDate": "2026-01-14T15:40:32.402946",
     "methodology": "Verra VM0042"
   }
 }

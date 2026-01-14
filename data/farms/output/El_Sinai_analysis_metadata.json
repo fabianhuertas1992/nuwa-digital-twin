@@ -5,13 +5,13 @@
         "farm-el_sinai": {
           "name": "Digital Twin - 194730002000000050047000000000",
           "description": "Verified carbon baseline and EUDR compliance certificate for 194730002000000050047000000000",
-          "image": "ipfs://QmDRY_RUN_HASH_El_Sinai_analysis",
+          "image": "ipfs://bafkreifmqyaeg63cbmurgwaqv7hb466rurpoosh5euclhb2v7zzl6tscei",
           "mediaType": "application/json",
           "files": [
             {
               "name": "Farm Analysis Data",
               "mediaType": "application/json",
-              "src": "ipfs://QmDRY_RUN_HASH_El_Sinai_analysis"
+              "src": "ipfs://bafkreifmqyaeg63cbmurgwaqv7hb466rurpoosh5euclhb2v7zzl6tscei"
             }
           ],
           "attributes": {
@@ -25,7 +25,7 @@
             "Area (ha)": 17.7017,
             "Methodology": "VM0042",
             "Analysis Date": "2026-01-14T11:23:05.524258",
-            "IPFS Hash": "QmDRY_RUN_HASH_El_Sinai_analysis"
+            "IPFS Hash": "bafkreifmqyaeg63cbmurgwaqv7hb466rurpoosh5euclhb2v7zzl6tscei"
           }
         }
       }
@@ -46,10 +46,10 @@
       "areaHa": 17.7017
     },
     "ipfs": {
-      "analysisHash": "QmDRY_RUN_HASH_El_Sinai_analysis",
-      "analysisUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_El_Sinai_analysis"
+      "analysisHash": "bafkreifmqyaeg63cbmurgwaqv7hb466rurpoosh5euclhb2v7zzl6tscei",
+      "analysisUrl": "https://gateway.pinata.cloud/ipfs/bafkreifmqyaeg63cbmurgwaqv7hb466rurpoosh5euclhb2v7zzl6tscei"
     },
-    "verificationDate": "2026-01-14T15:26:37.818687",
+    "verificationDate": "2026-01-14T15:40:30.589796",
     "methodology": "Verra VM0042"
   }
 }

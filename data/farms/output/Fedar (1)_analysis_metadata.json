@@ -5,13 +5,13 @@
         "farm-fedar-(1)": {
           "name": "Digital Twin - PoligonoFedar",
           "description": "Verified carbon baseline and EUDR compliance certificate for PoligonoFedar",
-          "image": "ipfs://QmDRY_RUN_HASH_Fedar (1)_analysis",
+          "image": "ipfs://bafkreih6mcfo67omjxao6mirhas5ykhy5eiehlnf6gv74veiy45yfhrmmi",
           "mediaType": "application/json",
           "files": [
             {
               "name": "Farm Analysis Data",
               "mediaType": "application/json",
-              "src": "ipfs://QmDRY_RUN_HASH_Fedar (1)_analysis"
+              "src": "ipfs://bafkreih6mcfo67omjxao6mirhas5ykhy5eiehlnf6gv74veiy45yfhrmmi"
             }
           ],
           "attributes": {
@@ -25,7 +25,7 @@
             "Area (ha)": 45.6693,
             "Methodology": "VM0042",
             "Analysis Date": "2026-01-14T11:23:17.456020",
-            "IPFS Hash": "QmDRY_RUN_HASH_Fedar (1)_analysis"
+            "IPFS Hash": "bafkreih6mcfo67omjxao6mirhas5ykhy5eiehlnf6gv74veiy45yfhrmmi"
           }
         }
       }
@@ -46,10 +46,10 @@
       "areaHa": 45.6693
     },
     "ipfs": {
-      "analysisHash": "QmDRY_RUN_HASH_Fedar (1)_analysis",
-      "analysisUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_Fedar (1)_analysis"
+      "analysisHash": "bafkreih6mcfo67omjxao6mirhas5ykhy5eiehlnf6gv74veiy45yfhrmmi",
+      "analysisUrl": "https://gateway.pinata.cloud/ipfs/bafkreih6mcfo67omjxao6mirhas5ykhy5eiehlnf6gv74veiy45yfhrmmi"
     },
-    "verificationDate": "2026-01-14T15:26:37.819447",
+    "verificationDate": "2026-01-14T15:40:31.317140",
     "methodology": "Verra VM0042"
   }
 }

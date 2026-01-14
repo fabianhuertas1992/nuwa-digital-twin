@@ -36,7 +36,7 @@ except ImportError:
 
 # Pinata API configuration
 PINATA_API_KEY = os.getenv('PINATA_API_KEY')
-PINATA_API_SECRET = os.getenv('PINATA_API_SECRET')
+PINATA_API_SECRET = os.getenv('PINATA_API_SECRET') or os.getenv('PINATA_SECRET_KEY')
 PINATA_JWT = os.getenv('PINATA_JWT')
 PINATA_API_URL = "https://api.pinata.cloud"
 

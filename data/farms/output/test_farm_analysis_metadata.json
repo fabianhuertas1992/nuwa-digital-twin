@@ -5,13 +5,13 @@
         "farm-libano-001": {
           "name": "Digital Twin - Finca Líbano",
           "description": "Verified carbon baseline and EUDR compliance certificate for Finca Líbano",
-          "image": "ipfs://QmDRY_RUN_HASH_test_farm_analysis",
+          "image": "ipfs://bafkreiammew7jqndu6vasvp2ucoh2hznuilhfjtx6lsyzxdrfuecgilfzy",
           "mediaType": "application/json",
           "files": [
             {
               "name": "Farm Analysis Data",
               "mediaType": "application/json",
-              "src": "ipfs://QmDRY_RUN_HASH_test_farm_analysis"
+              "src": "ipfs://bafkreiammew7jqndu6vasvp2ucoh2hznuilhfjtx6lsyzxdrfuecgilfzy"
             }
           ],
           "attributes": {
@@ -25,7 +25,7 @@
             "Area (ha)": 45.6693,
             "Methodology": "VM0042",
             "Analysis Date": "2026-01-14T09:14:13.445937",
-            "IPFS Hash": "QmDRY_RUN_HASH_test_farm_analysis"
+            "IPFS Hash": "bafkreiammew7jqndu6vasvp2ucoh2hznuilhfjtx6lsyzxdrfuecgilfzy"
           }
         }
       }
@@ -46,10 +46,10 @@
       "areaHa": 45.6693
     },
     "ipfs": {
-      "analysisHash": "QmDRY_RUN_HASH_test_farm_analysis",
-      "analysisUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_test_farm_analysis"
+      "analysisHash": "bafkreiammew7jqndu6vasvp2ucoh2hznuilhfjtx6lsyzxdrfuecgilfzy",
+      "analysisUrl": "https://gateway.pinata.cloud/ipfs/bafkreiammew7jqndu6vasvp2ucoh2hznuilhfjtx6lsyzxdrfuecgilfzy"
     },
-    "verificationDate": "2026-01-14T15:26:37.820597",
+    "verificationDate": "2026-01-14T15:40:35.378919",
     "methodology": "Verra VM0042"
   }
 }

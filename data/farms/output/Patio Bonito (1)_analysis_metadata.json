@@ -5,13 +5,13 @@
         "farm-patio-bonito-(1)": {
           "name": "Digital Twin - Poligono",
           "description": "Verified carbon baseline and EUDR compliance certificate for Poligono",
-          "image": "ipfs://QmDRY_RUN_HASH_Patio Bonito (1)_ana",
+          "image": "ipfs://bafkreif2c7s4lxzntlzreis7jtgmvsiyr37unmfuct5ove42vvmnpbffhu",
           "mediaType": "application/json",
           "files": [
             {
               "name": "Farm Analysis Data",
               "mediaType": "application/json",
-              "src": "ipfs://QmDRY_RUN_HASH_Patio Bonito (1)_ana"
+              "src": "ipfs://bafkreif2c7s4lxzntlzreis7jtgmvsiyr37unmfuct5ove42vvmnpbffhu"
             }
           ],
           "attributes": {
@@ -25,7 +25,7 @@
             "Area (ha)": 19.1426,
             "Methodology": "VM0042",
             "Analysis Date": "2026-01-14T11:23:47.867710",
-            "IPFS Hash": "QmDRY_RUN_HASH_Patio Bonito (1)_ana"
+            "IPFS Hash": "bafkreif2c7s4lxzntlzreis7jtgmvsiyr37unmfuct5ove42vvmnpbffhu"
           }
         }
       }
@@ -46,10 +46,10 @@
       "areaHa": 19.1426
     },
     "ipfs": {
-      "analysisHash": "QmDRY_RUN_HASH_Patio Bonito (1)_ana",
-      "analysisUrl": "https://gateway.pinata.cloud/ipfs/QmDRY_RUN_HASH_Patio Bonito (1)_ana"
+      "analysisHash": "bafkreif2c7s4lxzntlzreis7jtgmvsiyr37unmfuct5ove42vvmnpbffhu",
+      "analysisUrl": "https://gateway.pinata.cloud/ipfs/bafkreif2c7s4lxzntlzreis7jtgmvsiyr37unmfuct5ove42vvmnpbffhu"
     },
-    "verificationDate": "2026-01-14T15:26:37.820069",
+    "verificationDate": "2026-01-14T15:40:33.562644",
     "methodology": "Verra VM0042"
   }
 }
