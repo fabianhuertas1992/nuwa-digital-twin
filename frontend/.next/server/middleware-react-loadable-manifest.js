@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"app/farm/new/page.tsx -> @/components/map/MapViewer\":{\"id\":\"app/farm/new/page.tsx -> @/components/map/MapViewer\",\"files\":[\"static/css/_app-pages-browser_components_map_MapViewer_tsx.css\",\"static/chunks/_app-pages-browser_components_map_MapViewer_tsx.js\"]}}"
