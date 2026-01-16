@@ -11,6 +11,7 @@ import { join } from 'path';
 import { existsSync } from 'fs';
 import { GeoJSONPolygon, CarbonBaseline, TreeMeasurement } from '../types/index.js';
 import { logger } from '../utils/logger.js';
+import { parseJsonOutput } from '../utils/json-parser.js';
 import { AppError } from '../api/middleware/error-handler.js';
 
 const execAsync = promisify(exec);
@@ -188,13 +189,11 @@ export class CarbonBaselineService {
       // Parse JSON output
       let result: CarbonBaseline;
       try {
-        if (!stdout || stdout.trim().length === 0) {
-          throw new Error('Empty output from Python script');
-        }
-        result = JSON.parse(stdout) as CarbonBaseline;
-      } catch {
-        logger.error('Failed to parse carbon baseline output', {
-          stdout: stdout.substring(0, 500),
+        result = parseJsonOutput<CarbonBaseline>(stdout, 'Carbon baseline calculation');
+      } catch (parseError) {
+        logger.error('Failed to parse carbon baseline output', undefined, {
+          parseError: parseError instanceof Error ? parseError.message : String(parseError),
+          stdoutLength: stdout?.length ?? 0,
           projectId,
         });
         throw new AppError(
@@ -206,7 +205,7 @@ export class CarbonBaselineService {
 
       // Validate result structure
       if (typeof result.baselineCarbonTCO2e !== 'number') {
-        logger.error('Invalid carbon baseline result structure', { result, projectId });
+        logger.error('Invalid carbon baseline result structure', undefined, { projectId });
         throw new AppError(
           'Invalid carbon baseline result structure from Python script',
           500,

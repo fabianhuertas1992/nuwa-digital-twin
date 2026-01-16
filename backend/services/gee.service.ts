@@ -10,6 +10,7 @@ import { join } from 'path';
 import { existsSync } from 'fs';
 import { GeoJSONPolygon, NDVIResult, DeforestationAnalysis } from '../types/index.js';
 import { logger } from '../utils/logger.js';
+import { parseJsonOutput } from '../utils/json-parser.js';
 import { AppError } from '../api/middleware/error-handler.js';
 
 const execAsync = promisify(exec);
@@ -119,27 +120,12 @@ export class GEEService {
   }
 
   /**
-   * Normalize date to YYYY-MM-DD format
-   */
-  private normalizeDateString(dateStr: string): string {
-    // Handle full ISO format (2024-01-01T00:00:00.000Z)
-    if (dateStr.includes('T')) {
-      return dateStr.split('T')[0];
-    }
-    return dateStr;
-  }
-
-  /**
    * Validate date format and range
    */
-  private validateDates(startDate: string, endDate: string): { startDate: string; endDate: string } {
-    // Normalize dates to YYYY-MM-DD format
-    const normalizedStart = this.normalizeDateString(startDate);
-    const normalizedEnd = this.normalizeDateString(endDate);
-
+  private validateDates(startDate: string, endDate: string): void {
     const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-
-    if (!dateRegex.test(normalizedStart)) {
+    
+    if (!dateRegex.test(startDate)) {
       throw new AppError(
         `Invalid start date format: ${startDate}. Expected YYYY-MM-DD`,
         400,
@@ -147,7 +133,7 @@ export class GEEService {
       );
     }
 
-    if (!dateRegex.test(normalizedEnd)) {
+    if (!dateRegex.test(endDate)) {
       throw new AppError(
         `Invalid end date format: ${endDate}. Expected YYYY-MM-DD`,
         400,
@@ -155,8 +141,8 @@ export class GEEService {
       );
     }
 
-    const start = new Date(normalizedStart);
-    const end = new Date(normalizedEnd);
+    const start = new Date(startDate);
+    const end = new Date(endDate);
 
     if (isNaN(start.getTime())) {
       throw new AppError(`Invalid start date: ${startDate}`, 400, 'INVALID_DATE');
@@ -185,8 +171,6 @@ export class GEEService {
     if (end > now) {
       throw new AppError('End date cannot be in the future', 400, 'INVALID_DATE');
     }
-
-    return { startDate: normalizedStart, endDate: normalizedEnd };
   }
 
   /**
@@ -244,7 +228,7 @@ export class GEEService {
     try {
       // Validate inputs
       this.validatePolygon(polygon);
-      const normalizedDates = this.validateDates(startDate, endDate);
+      this.validateDates(startDate, endDate);
 
       // Validate Python and scripts directory
       await this.validatePythonPath();
@@ -259,11 +243,11 @@ export class GEEService {
       const polygonFile = join(tmpDir, `polygon_${Date.now()}.json`);
       await writeFile(polygonFile, polygonJson, 'utf-8');
 
-      // Execute Python script with normalized dates
+      // Execute Python script
       const command = `"${this.pythonPath}" "${join(
         this.pythonScriptsPath,
         'ndvi_calculator.py'
-      )}" --polygon "${polygonFile}" --start-date "${normalizedDates.startDate}" --end-date "${normalizedDates.endDate}"`;
+      )}" --polygon "${polygonFile}" --start-date "${startDate}" --end-date "${endDate}"`;
 
       logger.debug('Executing Python script', { command: command.replace(this.pythonPath, 'python') });
 
@@ -307,38 +291,36 @@ export class GEEService {
         }
       }
 
-      // Log stderr output from Python
+      // Log warnings from Python if any
       if (stderr) {
-        // Check if stderr contains actual errors (not just informational messages)
-        const hasError = stderr.toLowerCase().includes('error:') ||
-                        stderr.toLowerCase().includes('exception:') ||
-                        stderr.toLowerCase().includes('traceback');
-
-        if (hasError) {
-          logger.error('NDVI calculation error from Python', { stderr, bounds });
+        const warnings = stderr.split('\n').filter((line) => 
+          line.toLowerCase().includes('warning') || line.toLowerCase().includes('warn')
+        );
+        if (warnings.length > 0) {
+          logger.warn('Python script warnings', { warnings, bounds });
+        } else if (!stderr.includes('Warning')) {
+          // Non-warning stderr output is an error
+          logger.error('NDVI calculation error from Python', {
+            stderr,
+            bounds,
+          });
           throw new AppError(
             `NDVI calculation failed: ${stderr.substring(0, 200)}`,
             500,
             'GEE_ERROR'
           );
-        } else {
-          // Log as info for informational messages like "Found X images in collection"
-          logger.debug('Python script output', { stderr: stderr.substring(0, 500), bounds });
         }
       }
 
       // Parse JSON output from Python script
       let result: NDVIResult;
       try {
-        if (!stdout || stdout.trim().length === 0) {
-          throw new Error('Empty output from Python script');
-        }
-        result = JSON.parse(stdout) as NDVIResult;
+        result = parseJsonOutput<NDVIResult>(stdout, 'NDVI calculation');
       } catch (parseError) {
-        logger.error('Failed to parse JSON output from Python script', {
+        logger.error('Failed to parse JSON output from Python script', undefined, {
           error: parseError instanceof Error ? parseError.message : String(parseError),
-          stdout: stdout.substring(0, 500),
-          stderr: stderr.substring(0, 500),
+          stdoutLength: stdout?.length ?? 0,
+          stderrLength: stderr?.length ?? 0,
           bounds,
         });
         throw new AppError(
