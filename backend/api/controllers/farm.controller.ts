@@ -88,10 +88,16 @@ export class FarmController {
   calculateNDVIDirect = asyncHandler(async (req: Request, res: Response) => {
     const { polygon, startDate, endDate } = req.body;
 
+    // Use default date range if not provided (last 30 days)
+    const end = endDate || new Date().toISOString().split('T')[0];
+    const start =
+      startDate ||
+      new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+
     const result = await this.geeService.calculateNDVI(
       polygon as GeoJSONPolygon,
-      startDate,
-      endDate
+      start,
+      end
     );
 
     const response: ApiResponse = {
