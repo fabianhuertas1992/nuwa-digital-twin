@@ -11,6 +11,7 @@ import { existsSync } from 'fs';
 import { GeoJSONPolygon, DeforestationAnalysis, EUDRValidationResult } from '../types/index.js';
 import { logger } from '../utils/logger.js';
 import { AppError } from '../api/middleware/error-handler.js';
+import { parseJsonOutput } from '../utils/json-parser.js';
 
 const execAsync = promisify(exec);
 
@@ -184,12 +185,10 @@ export class EUDRService {
       // Parse JSON output
       let result: DeforestationAnalysis;
       try {
-        if (!stdout || stdout.trim().length === 0) {
-          throw new Error('Empty output from Python script');
-        }
-        result = JSON.parse(stdout) as DeforestationAnalysis;
-      } catch {
+        result = parseJsonOutput<DeforestationAnalysis>(stdout, 'EUDR deforestation analysis');
+      } catch (parseError) {
         logger.error('Failed to parse deforestation analysis output', {
+          error: parseError instanceof Error ? parseError.message : String(parseError),
           stdout: stdout.substring(0, 500),
           projectId,
         });

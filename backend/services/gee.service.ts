@@ -11,6 +11,7 @@ import { existsSync } from 'fs';
 import { GeoJSONPolygon, NDVIResult, DeforestationAnalysis } from '../types/index.js';
 import { logger } from '../utils/logger.js';
 import { AppError } from '../api/middleware/error-handler.js';
+import { parseJsonOutput } from '../utils/json-parser.js';
 
 const execAsync = promisify(exec);
 
@@ -330,10 +331,7 @@ export class GEEService {
       // Parse JSON output from Python script
       let result: NDVIResult;
       try {
-        if (!stdout || stdout.trim().length === 0) {
-          throw new Error('Empty output from Python script');
-        }
-        result = JSON.parse(stdout) as NDVIResult;
+        result = parseJsonOutput<NDVIResult>(stdout, 'NDVI calculation');
       } catch (parseError) {
         logger.error('Failed to parse JSON output from Python script', {
           error: parseError instanceof Error ? parseError.message : String(parseError),
@@ -443,7 +441,7 @@ export class GEEService {
       }
 
       // Parse JSON output
-      const result = JSON.parse(stdout) as DeforestationAnalysis;
+      const result = parseJsonOutput<DeforestationAnalysis>(stdout, 'Deforestation analysis');
 
       // Ensure compliant flag is set (<5% loss = compliant)
       if (!('compliant' in result)) {
