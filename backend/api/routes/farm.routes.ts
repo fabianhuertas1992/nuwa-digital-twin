@@ -36,8 +36,8 @@ router.post(
   validateBody(
     Joi.object({
       polygon: schemas.geoJsonPolygon.required(),
-      startDate: schemas.date.required(),
-      endDate: schemas.date.required(),
+      startDate: schemas.date.optional(),
+      endDate: schemas.date.optional(),
     })
   ),
   farmController.calculateNDVIDirect.bind(farmController)
