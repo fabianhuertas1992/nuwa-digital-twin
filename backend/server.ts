@@ -3,17 +3,16 @@
  * Express server with API routes and middleware
  */
 
+// Load environment variables FIRST (before any other imports)
+import 'dotenv/config';
+
 import express, { Express, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import dotenv from 'dotenv';
 import { logger } from './utils/logger.js';
 import { errorHandler, AppError } from './api/middleware/error-handler.js';
 import routes from './api/routes/index.js';
 import { initDatabase, FarmModel } from './models/farm.model.js';
-
-// Load environment variables
-dotenv.config();
 
 const app: Express = express();
 const PORT = process.env.PORT || 3001;

@@ -21,8 +21,8 @@ export class GEEService {
   private readonly MAX_DATE_RANGE_YEARS = 5;
 
   constructor() {
-    // Assume Python scripts are in python-scripts directory at project root
-    this.pythonScriptsPath = join(process.cwd(), 'python-scripts');
+    // Use PYTHON_SCRIPTS_PATH from env or fallback to python-scripts at project root
+    this.pythonScriptsPath = process.env.PYTHON_SCRIPTS_PATH || join(process.cwd(), 'python-scripts');
     // Use venv Python which has earthengine-api installed
     this.pythonPath = process.env.PYTHON_PATH || join(this.pythonScriptsPath, 'venv', 'bin', 'python3');
   }
@@ -291,24 +291,23 @@ export class GEEService {
         }
       }
 
-      // Log warnings from Python if any
+      // Log stderr output (may contain info messages or errors)
       if (stderr) {
-        const warnings = stderr.split('\n').filter((line) => 
-          line.toLowerCase().includes('warning') || line.toLowerCase().includes('warn')
-        );
-        if (warnings.length > 0) {
-          logger.warn('Python script warnings', { warnings, bounds });
-        } else if (!stderr.includes('Warning')) {
-          // Non-warning stderr output is an error
-          logger.error('NDVI calculation error from Python', {
-            stderr,
-            bounds,
-          });
+        const stderrLower = stderr.toLowerCase();
+        const hasError = stderrLower.includes('error:') ||
+                        stderrLower.includes('exception:') ||
+                        stderrLower.includes('traceback');
+
+        if (hasError) {
+          logger.error('NDVI calculation error from Python', { stderr, bounds });
           throw new AppError(
             `NDVI calculation failed: ${stderr.substring(0, 200)}`,
             500,
             'GEE_ERROR'
           );
+        } else {
+          // Informational or warning messages - just log them
+          logger.debug('Python script output', { stderr: stderr.substring(0, 500) });
         }
       }
 

@@ -23,7 +23,7 @@ export class CarbonBaselineService {
   private pythonPath: string;
 
   constructor() {
-    this.pythonScriptsPath = join(process.cwd(), 'python-scripts');
+    this.pythonScriptsPath = process.env.PYTHON_SCRIPTS_PATH || join(process.cwd(), 'python-scripts');
     this.pythonPath = process.env.PYTHON_PATH || join(this.pythonScriptsPath, 'venv', 'bin', 'python3');
   }
 

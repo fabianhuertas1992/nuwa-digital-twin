@@ -89,11 +89,11 @@ export const validateParams = (schema: Joi.ObjectSchema) => {
 // Common validation schemas
 export const schemas = {
   uuid: Joi.string().uuid().required(),
-  geoJsonPolygon: Joi.object({
-    type: Joi.string().valid('Polygon', 'Feature').required(),
-    coordinates: Joi.when('type', {
-      is: 'Polygon',
-      then: Joi.array()
+  geoJsonPolygon: Joi.alternatives().try(
+    // Direct Polygon type
+    Joi.object({
+      type: Joi.string().valid('Polygon').required(),
+      coordinates: Joi.array()
         .items(
           Joi.array().items(
             Joi.array().items(Joi.number().min(-180).max(180)).length(2)
@@ -101,21 +101,11 @@ export const schemas = {
         )
         .min(1)
         .required(),
-      otherwise: Joi.when('geometry.type', {
-        is: 'Polygon',
-        then: Joi.array()
-          .items(
-            Joi.array().items(
-              Joi.array().items(Joi.number().min(-180).max(180)).length(2)
-            )
-          )
-          .min(1)
-          .required(),
-      }),
     }),
-    geometry: Joi.when('type', {
-      is: 'Feature',
-      then: Joi.object({
+    // Feature type with geometry
+    Joi.object({
+      type: Joi.string().valid('Feature').required(),
+      geometry: Joi.object({
         type: Joi.string().valid('Polygon').required(),
         coordinates: Joi.array()
           .items(
@@ -126,7 +116,9 @@ export const schemas = {
           .min(1)
           .required(),
       }).required(),
-    }),
-  }),
-  date: Joi.string().isoDate().required(),
+      properties: Joi.object().optional().unknown(true),
+      id: Joi.alternatives().try(Joi.string(), Joi.number()).optional(),
+    })
+  ),
+  date: Joi.string().isoDate(),
 };

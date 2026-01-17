@@ -89,8 +89,9 @@ export class FarmController {
     const { polygon, startDate: inputStartDate, endDate: inputEndDate } = req.body;
 
     // Default to last 30 days if dates not provided
-    const end = inputEndDate || new Date().toISOString().split('T')[0];
-    const start = inputStartDate || new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    // Extract YYYY-MM-DD from ISO dates if needed (Joi may convert to ISO format)
+    const end = inputEndDate ? String(inputEndDate).split('T')[0] : new Date().toISOString().split('T')[0];
+    const start = inputStartDate ? String(inputStartDate).split('T')[0] : new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
     const result = await this.geeService.calculateNDVI(
       polygon as GeoJSONPolygon,
