@@ -94,23 +94,42 @@ export default function MapViewer({
   useEffect(() => {
     if (!mapLoaded || !initialPolygon || !map.current) return
 
-    // Add polygon to draw if available
-    if (draw.current) {
-      draw.current.add({
+    // Extract geometry - handle both Feature and direct Polygon types
+    let geometry: { type: string; coordinates: number[][][] }
+    let featureData: GeoJSON.Feature
+
+    if ('geometry' in initialPolygon && initialPolygon.geometry) {
+      // It's a Feature type
+      geometry = initialPolygon.geometry as { type: string; coordinates: number[][][] }
+      featureData = initialPolygon as unknown as GeoJSON.Feature
+    } else if ('coordinates' in initialPolygon) {
+      // It's a direct Polygon type
+      geometry = initialPolygon as unknown as { type: string; coordinates: number[][][] }
+      featureData = {
         type: 'Feature',
         properties: {},
-        geometry: initialPolygon,
-      })
+        geometry: geometry,
+      } as GeoJSON.Feature
+    } else {
+      console.error('Invalid polygon format')
+      return
+    }
+
+    // Validate coordinates exist
+    if (!geometry.coordinates || !geometry.coordinates[0] || geometry.coordinates[0].length === 0) {
+      console.error('Invalid polygon coordinates')
+      return
+    }
+
+    // Add polygon to draw if available
+    if (draw.current) {
+      draw.current.add(featureData)
     } else {
       // Add as a layer if no draw control
       if (!map.current.getSource('polygon')) {
         map.current.addSource('polygon', {
           type: 'geojson',
-          data: {
-            type: 'Feature',
-            properties: {},
-            geometry: initialPolygon,
-          },
+          data: featureData,
         })
 
         map.current.addLayer({
@@ -136,7 +155,7 @@ export default function MapViewer({
     }
 
     // Fit bounds to polygon
-    const coordinates = initialPolygon.coordinates[0]
+    const coordinates = geometry.coordinates[0]
     const bounds = coordinates.reduce(
       (bounds, coord) => bounds.extend(coord as [number, number]),
       new mapboxgl.LngLatBounds(
