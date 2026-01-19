@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { TreePine, LayoutDashboard, PlusCircle, Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import WalletConnector from '../wallet/WalletConnector'
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -51,6 +52,9 @@ export default function Navbar() {
                 </Link>
               )
             })}
+            <div className="ml-4">
+              <WalletConnector />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,6 +91,9 @@ export default function Navbar() {
                 </Link>
               )
             })}
+            <div className="px-4 pt-4 mt-4 border-t">
+              <WalletConnector />
+            </div>
           </div>
         )}
       </div>
