@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import dynamic from 'next/dynamic'
-import { Loader2 } from 'lucide-react'
+import { Loader2, Save, Sparkles, CheckCircle, ArrowRight } from 'lucide-react'
 import PolygonUploader from '@/components/map/PolygonUploader'
 import NDVIChart from '@/components/analysis/NDVIChart'
 import EUDRStatus from '@/components/analysis/EUDRStatus'
 import CarbonMetrics from '@/components/analysis/CarbonMetrics'
+import ValidationStatus from '@/components/analysis/ValidationStatus'
 import { Button } from '@/components/ui/button'
 import { api } from '@/lib/api'
 import type { GeoJSONPolygon, NDVIResult, DeforestationResult, CarbonResult } from '@/types'
@@ -43,9 +45,13 @@ interface AnalysisResultType {
 }
 
 export default function NewFarmPage() {
+  const router = useRouter()
   const [polygon, setPolygon] = useState<GeoJSONPolygon | null>(null)
   const [farmData, setFarmData] = useState<FarmData>({})
   const [analyzing, setAnalyzing] = useState(false)
+  const [saving, setSaving] = useState(false)
+  const [minting, setMinting] = useState(false)
+  const [saved, setSaved] = useState(false)
   const [result, setResult] = useState<AnalysisResultType | null>(null)
   const [error, setError] = useState<string | null>(null)
 
@@ -86,7 +92,39 @@ export default function NewFarmPage() {
     setResult(null)
     setFarmData({})
     setError(null)
+    setSaved(false)
   }
+
+  const handleSave = async () => {
+    if (!result) return
+    setSaving(true)
+    try {
+      // In production, this would call an API to save the farm
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      setSaved(true)
+    } catch (err) {
+      setError('Error al guardar la finca')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  const handleMintNFT = async () => {
+    if (!result) return
+    setMinting(true)
+    try {
+      // In production, this would call the NFT minting API
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      alert('NFT Digital Twin creado exitosamente!')
+      router.push('/dashboard')
+    } catch (err) {
+      setError('Error al crear el NFT')
+    } finally {
+      setMinting(false)
+    }
+  }
+
+  const isEudrCompliant = result?.analysis?.deforestation?.compliant ?? false
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -110,7 +148,30 @@ export default function NewFarmPage() {
           {/* Analysis Results */}
           {result && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold">Resultados del Analisis</h2>
+              <div className="flex items-center justify-between">
+                <h2 className="text-2xl font-bold">Resultados del Analisis</h2>
+                {saved && (
+                  <span className="flex items-center gap-2 text-green-600 text-sm">
+                    <CheckCircle className="h-4 w-4" />
+                    Guardado
+                  </span>
+                )}
+              </div>
+
+              {/* Validation Pipeline Status */}
+              <ValidationStatus
+                eudrStatus={
+                  result.analysis.deforestation
+                    ? result.analysis.deforestation.compliant
+                      ? 'approved'
+                      : 'rejected'
+                    : 'pending'
+                }
+                nftStatus={minting ? 'minting' : 'not_minted'}
+                baselineVerified={!!result.analysis.carbon}
+                deforestationPercent={result.analysis.deforestation?.deforestationPercent || 0}
+                onMintNFT={isEudrCompliant && saved ? handleMintNFT : undefined}
+              />
 
               {result.analysis.ndvi && (
                 <NDVIChart data={result.analysis.ndvi} />
@@ -181,13 +242,69 @@ export default function NewFarmPage() {
                 </Button>
 
                 {result && (
-                  <div className="pt-4 border-t">
-                    <p className="text-sm text-gray-600 mb-2">
+                  <div className="pt-4 border-t space-y-3">
+                    <p className="text-sm text-gray-600">
                       Analisis completado exitosamente
                     </p>
+
+                    {!saved ? (
+                      <Button
+                        className="w-full bg-green-600 hover:bg-green-700"
+                        onClick={handleSave}
+                        disabled={saving}
+                      >
+                        {saving ? (
+                          <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Guardando...
+                          </>
+                        ) : (
+                          <>
+                            <Save className="mr-2 h-4 w-4" />
+                            Guardar Finca
+                          </>
+                        )}
+                      </Button>
+                    ) : (
+                      <>
+                        {isEudrCompliant ? (
+                          <Button
+                            className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                            onClick={handleMintNFT}
+                            disabled={minting}
+                          >
+                            {minting ? (
+                              <>
+                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                Creando NFT...
+                              </>
+                            ) : (
+                              <>
+                                <Sparkles className="mr-2 h-4 w-4" />
+                                Crear NFT Digital Twin
+                              </>
+                            )}
+                          </Button>
+                        ) : (
+                          <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-800">
+                            La finca no cumple con EUDR (deforestacion &gt; 5%).
+                            No es elegible para NFT.
+                          </div>
+                        )}
+                        <Button
+                          variant="outline"
+                          className="w-full"
+                          onClick={() => router.push('/dashboard')}
+                        >
+                          <ArrowRight className="mr-2 h-4 w-4" />
+                          Ir al Dashboard
+                        </Button>
+                      </>
+                    )}
+
                     <Button
-                      variant="outline"
-                      className="w-full"
+                      variant="ghost"
+                      className="w-full text-gray-500"
                       onClick={handleReset}
                     >
                       Analizar otra finca

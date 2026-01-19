@@ -3,6 +3,7 @@
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import { useState } from 'react'
 import {
   ArrowLeft,
   TreePine,
@@ -13,13 +14,15 @@ import {
   XCircle,
   Loader2,
   RefreshCw,
-  Download,
   Share2,
+  FileText,
 } from 'lucide-react'
 import NDVIChart from '@/components/analysis/NDVIChart'
 import EUDRStatus from '@/components/analysis/EUDRStatus'
 import CarbonMetrics from '@/components/analysis/CarbonMetrics'
+import ValidationStatus, { ValidationStep } from '@/components/analysis/ValidationStatus'
 import { Button } from '@/components/ui/button'
+import { downloadCertificatePDF, CertificateData } from '@/lib/generateCertificate'
 
 // Dynamic import for MapViewer to avoid SSR issues with mapbox
 const MapViewer = dynamic(() => import('@/components/map/MapViewer'), {
@@ -41,6 +44,15 @@ const mockFarmsData: Record<string, {
   lastAnalysis: string;
   createdAt: string;
   status: string;
+  eudrValidationStatus: ValidationStep;
+  nftStatus: 'not_minted' | 'minting' | 'minted';
+  baselineVerified: boolean;
+  nft?: {
+    tokenId: string;
+    txHash: string;
+    ipfsHash: string;
+    mintedAt: string;
+  };
   polygon: {
     type: 'Feature';
     geometry: {
@@ -88,6 +100,9 @@ const mockFarmsData: Record<string, {
     lastAnalysis: '2024-01-10',
     createdAt: '2023-06-15',
     status: 'warning',
+    eudrValidationStatus: 'rejected',
+    nftStatus: 'not_minted',
+    baselineVerified: true,
     polygon: {
       type: 'Feature',
       geometry: {
@@ -134,6 +149,15 @@ const mockFarmsData: Record<string, {
     lastAnalysis: '2024-01-12',
     createdAt: '2023-08-20',
     status: 'healthy',
+    eudrValidationStatus: 'active',
+    nftStatus: 'minted',
+    baselineVerified: true,
+    nft: {
+      tokenId: 'NUWA_FEDAR_2024',
+      txHash: '0x7a2f8c9e4b5d6a1f3e2c9b8a7d6e5f4c3b2a1908',
+      ipfsHash: 'QmX8Y9Z7W6V5U4T3S2R1Q0P9O8N7M6L5K4J3I2H1G0F',
+      mintedAt: '2024-01-12T15:30:00Z',
+    },
     polygon: {
       type: 'Feature',
       geometry: {
@@ -180,6 +204,9 @@ const mockFarmsData: Record<string, {
     lastAnalysis: '2024-01-08',
     createdAt: '2023-03-10',
     status: 'critical',
+    eudrValidationStatus: 'rejected',
+    nftStatus: 'not_minted',
+    baselineVerified: true,
     polygon: {
       type: 'Feature',
       geometry: {
@@ -226,6 +253,9 @@ const mockFarmsData: Record<string, {
     lastAnalysis: '2024-01-15',
     createdAt: '2023-11-05',
     status: 'healthy',
+    eudrValidationStatus: 'approved',
+    nftStatus: 'not_minted',
+    baselineVerified: true,
     polygon: {
       type: 'Feature',
       geometry: {
@@ -269,6 +299,54 @@ export default function FarmDetailPage() {
   const params = useParams()
   const farmId = params.id as string
   const farm = mockFarmsData[farmId]
+  const [isExporting, setIsExporting] = useState(false)
+  const [isMinting, setIsMinting] = useState(false)
+
+  const handleExportPDF = async () => {
+    if (!farm) return
+    setIsExporting(true)
+    try {
+      const certData: CertificateData = {
+        farmName: farm.name,
+        farmId: farm.id,
+        owner: farm.owner,
+        location: farm.location,
+        areaHa: farm.areaHa,
+        polygon: {
+          type: farm.polygon.type,
+          coordinates: farm.polygon.geometry.coordinates,
+        },
+        analysis: {
+          ndvi: {
+            mean: farm.analysis.ndvi.mean,
+            median: farm.analysis.ndvi.median,
+            calculatedAt: farm.analysis.ndvi.calculatedAt,
+          },
+          deforestation: farm.analysis.deforestation,
+          carbon: {
+            baselineCarbonTCO2e: farm.analysis.carbon.baselineCarbonTCO2e,
+            agbTonnesPerHa: farm.analysis.carbon.agbTonnesPerHa,
+            methodology: farm.analysis.carbon.methodology,
+            verraMethodology: farm.analysis.carbon.verraMethodology,
+          },
+        },
+        nft: farm.nft,
+      }
+      await downloadCertificatePDF(certData)
+    } catch (error) {
+      console.error('Error exporting PDF:', error)
+    } finally {
+      setIsExporting(false)
+    }
+  }
+
+  const handleMintNFT = async () => {
+    setIsMinting(true)
+    // Simulate NFT minting - in production this would call the API
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    alert('NFT mintado exitosamente! (Demo)')
+    setIsMinting(false)
+  }
 
   if (!farm) {
     return (
@@ -354,9 +432,9 @@ export default function FarmDetailPage() {
               <RefreshCw className="h-4 w-4 mr-2" />
               Re-analizar
             </Button>
-            <Button variant="outline" size="sm">
-              <Download className="h-4 w-4 mr-2" />
-              Exportar
+            <Button variant="outline" size="sm" onClick={handleExportPDF} disabled={isExporting}>
+              {isExporting ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <FileText className="h-4 w-4 mr-2" />}
+              Certificado PDF
             </Button>
             <Button variant="outline" size="sm">
               <Share2 className="h-4 w-4 mr-2" />
@@ -435,6 +513,15 @@ export default function FarmDetailPage() {
           {/* EUDR Status */}
           <EUDRStatus data={farm.analysis.deforestation} />
 
+          {/* Validation Status Pipeline */}
+          <ValidationStatus
+            eudrStatus={farm.eudrValidationStatus}
+            nftStatus={isMinting ? 'minting' : farm.nftStatus}
+            baselineVerified={farm.baselineVerified}
+            deforestationPercent={farm.analysis.deforestation.deforestationPercent}
+            onMintNFT={handleMintNFT}
+          />
+
           {/* Carbon Metrics */}
           <CarbonMetrics data={farm.analysis.carbon} />
         </div>
@@ -505,14 +592,40 @@ export default function FarmDetailPage() {
                 <TreePine className="h-4 w-4 mr-2" />
                 Recalcular Carbono
               </Button>
-              <Button className="w-full justify-start" variant="outline">
-                <Download className="h-4 w-4 mr-2" />
-                Descargar Reporte PDF
+              <Button
+                className="w-full justify-start"
+                variant="outline"
+                onClick={handleExportPDF}
+                disabled={isExporting}
+              >
+                {isExporting ? (
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                ) : (
+                  <FileText className="h-4 w-4 mr-2" />
+                )}
+                Descargar Certificado PDF
               </Button>
-              <Button className="w-full justify-start bg-green-600 hover:bg-green-700 text-white">
-                <Leaf className="h-4 w-4 mr-2" />
-                Generar Certificado NFT
-              </Button>
+              {farm.eudrValidationStatus === 'approved' && farm.nftStatus === 'not_minted' && (
+                <Button
+                  className="w-full justify-start bg-green-600 hover:bg-green-700 text-white"
+                  onClick={handleMintNFT}
+                  disabled={isMinting}
+                >
+                  {isMinting ? (
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  ) : (
+                    <Leaf className="h-4 w-4 mr-2" />
+                  )}
+                  Generar Certificado NFT
+                </Button>
+              )}
+              {farm.nftStatus === 'minted' && (
+                <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-center">
+                  <CheckCircle className="h-5 w-5 text-green-600 mx-auto mb-1" />
+                  <p className="text-sm font-medium text-green-800">NFT Certificado</p>
+                  <p className="text-xs text-green-600">Token: {farm.nft?.tokenId}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
