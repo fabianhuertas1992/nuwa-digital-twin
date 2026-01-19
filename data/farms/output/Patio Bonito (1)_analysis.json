@@ -104,10 +104,10 @@
       "std": 0.122,
       "min": 0.123,
       "max": 0.911,
-      "imageUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/17f487967a82ec2576a832466c7b8f25-549bd69e1daf5e23ba38a2428f2686eb:getPixels",
+      "imageUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/a3cc177dd838613dc27940ed1629dd7a-db966d872525c714540eebe016e2d04f:getPixels",
       "imagesUsed": 6,
       "dateRange": "2024-01-01 to 2024-12-31",
-      "timestamp": "2026-01-14T11:23:29.559617"
+      "timestamp": "2026-01-16T10:56:00.476211"
     },
     "deforestation": {
       "deforestationPercent": 0.45,
@@ -117,27 +117,27 @@
       "historicalImages": [
         {
           "year": 2021,
-          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/c1253b5fb4d6ba613015166168af3b14-a03435eca47c3e92efdc0ede7c5e72e4:getPixels"
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/c1575cf9c31dfa29168c727d3c038bd3-8a8dc3114c7dedd103c8d5340ac835c2:getPixels"
         },
         {
           "year": 2022,
-          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/f0e616c40a6dbbec0538cc866edbe3ae-43930cbcb79651c9e9f8176b42fca17c:getPixels"
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/842feec92daa27cdd6ad368b1e15842c-094f0f2058811edbadc3fd0426634a77:getPixels"
         },
         {
           "year": 2023,
-          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/2cf1cc206374e1486f50496ad66272ff-23a6ab0b25cf5c3086284491e30d9a61:getPixels"
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/b7f6ded3a4631fc94887b485eb4bad97-edfd9f8dba3515537b21e4d623ddd062:getPixels"
         },
         {
           "year": 2024,
-          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/b1042a45fb4df9eab0b717bac758d9ee-70e660abc467cbedd65d4cefb8390c62:getPixels"
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/1b40b7073ce4aa7d394e1adf285febc1-b841dccc5f4b742845d2cd773ccb22d8:getPixels"
         },
         {
           "year": 2025,
-          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/d36992e18198c24f7ef322e8efa5da60-c7b16f38b6a3163d89430a8c32649ee4:getPixels"
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/3e598033cb79d1e3dd425fb9f03107e5-20e0adf6d3dff90e3445fe34f38ea69a:getPixels"
         }
       ],
-      "changeDetectionUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/2fc14e8b36fe98a4ecddcf4adc6104c3-3986155910b67876e4dedd0da88c15ac:getPixels",
-      "analysisDate": "2026-01-14T11:23:46.197422",
+      "changeDetectionUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/2fc14e8b36fe98a4ecddcf4adc6104c3-e586821fcdc49bdf70252651c3a3a5b3:getPixels",
+      "analysisDate": "2026-01-16T10:56:07.646254",
       "methodology": "Hansen GFC + Sentinel-2 validation",
       "periodAnalyzed": "2021 - 2026"
     },
@@ -150,7 +150,7 @@
       "methodology": "satellite",
       "confidence": "medium",
       "treesAnalyzed": 0,
-      "calculationDate": "2026-01-14T11:23:47.867710",
+      "calculationDate": "2026-01-16T10:56:09.715654",
       "equation": "Chave et al. 2014 (pantropical)",
       "verraMethodology": "VM0042",
       "breakdown": {
@@ -159,5 +159,5 @@
       }
     }
   },
-  "generatedAt": "2026-01-14T11:23:47.867761"
+  "generatedAt": "2026-01-16T10:56:09.715673"
 }

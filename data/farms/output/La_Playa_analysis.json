@@ -1,0 +1,233 @@
+{
+  "farmInfo": {
+    "name": "La_Playa",
+    "farmId": "farm-la_playa",
+    "owner": null,
+    "location": {}
+  },
+  "polygon": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -75.041159410082,
+          4.907896244038
+        ],
+        [
+          -75.0413006347457,
+          4.90781702518781
+        ],
+        [
+          -75.0413350804781,
+          4.90766593127672
+        ],
+        [
+          -75.0413503398226,
+          4.90756494717973
+        ],
+        [
+          -75.0417760146104,
+          4.90768971096133
+        ],
+        [
+          -75.0421965794197,
+          4.90778464072801
+        ],
+        [
+          -75.042438401234,
+          4.90791120001695
+        ],
+        [
+          -75.0426591922854,
+          4.90809576000664
+        ],
+        [
+          -75.0428431825699,
+          4.90830668279311
+        ],
+        [
+          -75.0429535595022,
+          4.90885506672066
+        ],
+        [
+          -75.0431638314,
+          4.90917144806809
+        ],
+        [
+          -75.0435107883016,
+          4.90949838064246
+        ],
+        [
+          -75.0437368339337,
+          4.90976730653791
+        ],
+        [
+          -75.0439155647551,
+          4.9100573219869
+        ],
+        [
+          -75.0439469584887,
+          4.91012578084277
+        ],
+        [
+          -75.0428975323256,
+          4.91051045596854
+        ],
+        [
+          -75.0427064468747,
+          4.91058049958282
+        ],
+        [
+          -75.0424956931101,
+          4.91043550601741
+        ],
+        [
+          -75.0424708217179,
+          4.91043136748148
+        ],
+        [
+          -75.0423220885523,
+          4.91040661864324
+        ],
+        [
+          -75.0422435540229,
+          4.91039304040638
+        ],
+        [
+          -75.0422382613972,
+          4.91039212533689
+        ],
+        [
+          -75.0421797239666,
+          4.91038200449393
+        ],
+        [
+          -75.0418917884146,
+          4.9104507464422
+        ],
+        [
+          -75.0418741721088,
+          4.91045495216771
+        ],
+        [
+          -75.0418407394907,
+          4.91046293388591
+        ],
+        [
+          -75.0417711600042,
+          4.91047954531757
+        ],
+        [
+          -75.0417479335891,
+          4.91048522280389
+        ],
+        [
+          -75.0416983955744,
+          4.91049733191884
+        ],
+        [
+          -75.0416596235605,
+          4.91050680938042
+        ],
+        [
+          -75.0416168969623,
+          4.9105172535007
+        ],
+        [
+          -75.0412096460381,
+          4.91061680205474
+        ],
+        [
+          -75.0410431822168,
+          4.91068523379565
+        ],
+        [
+          -75.0409813675413,
+          4.91071064522419
+        ],
+        [
+          -75.0412374023927,
+          4.90997142844703
+        ],
+        [
+          -75.0414496454152,
+          4.90905622912031
+        ],
+        [
+          -75.0413902569335,
+          4.90840068175835
+        ],
+        [
+          -75.041159410082,
+          4.907896244038
+        ]
+      ]
+    ]
+  },
+  "metadata": {
+    "USUARIO_LOG": null,
+    "FECHA_LOG": null,
+    "GLOBALID_SNC": null,
+    "OBJECTID": 2335742,
+    "CODIGO": "734110001000000020403000000000",
+    "VEREDA_CODIGO": "73411000000000000",
+    "NUMERO_SUBTERRANEOS": 0,
+    "CODIGO_ANTERIOR": "73411000100020403000",
+    "GLOBALID": "55ac8284-6434-49c0-998f-ab2994ab5410",
+    "codigo_municipio": "73411",
+    "CODIGO_DEPARTAMENTO": "73",
+    "Shape__Area": 64477.03125,
+    "Shape__Length": 1159.3018912237524
+  },
+  "analysis": {
+    "ndvi": {
+      "mean": 0.849,
+      "median": 0.861,
+      "std": 0.061,
+      "min": 0.374,
+      "max": 0.932,
+      "imageUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/49083176ea266928e99cb39b3aba49b8-7ad57bd3ae316a30f908370bf7d751cc:getPixels",
+      "imagesUsed": 2,
+      "dateRange": "2024-01-01 to 2024-12-31",
+      "timestamp": "2026-01-16T10:55:51.394941"
+    },
+    "deforestation": {
+      "deforestationPercent": 5.61,
+      "areaLostHa": 0.36,
+      "initialForestHa": 6.35,
+      "compliant": false,
+      "historicalImages": [
+        {
+          "year": 2023,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/8e60af1186f16a57451f48f3fd037034-9cddf367a71d16cecfc04e3da824ab36:getPixels"
+        },
+        {
+          "year": 2024,
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/39e3d24087a2f29da9ed9645550a3255-9df6aab386f95993f3156f92130ff864:getPixels"
+        }
+      ],
+      "changeDetectionUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/90924aa25a83e3f1c67180fc5807d4d6-d45ead25c8d9c5e24fc1a6c63cf77f86:getPixels",
+      "analysisDate": "2026-01-16T10:55:56.468481",
+      "methodology": "Hansen GFC + Sentinel-2 validation",
+      "periodAnalyzed": "2021 - 2026"
+    },
+    "carbon": {
+      "baselineCarbonTCO2e": 660.33,
+      "agbTonnesPerHa": 50,
+      "totalAgbTonnes": 319.31,
+      "totalCarbonTonnes": 180.09,
+      "areaHa": 6.3862,
+      "methodology": "satellite",
+      "confidence": "low",
+      "treesAnalyzed": 0,
+      "calculationDate": "2026-01-16T10:55:58.117237",
+      "equation": "Chave et al. 2014 (pantropical)",
+      "verraMethodology": "VM0042",
+      "breakdown": {
+        "abovegroundBiomass": 150.08,
+        "belowgroundBiomass": 30.02
+      }
+    }
+  },
+  "generatedAt": "2026-01-16T10:55:58.117271"
+}

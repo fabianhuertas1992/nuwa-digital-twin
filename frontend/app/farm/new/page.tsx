@@ -11,6 +11,7 @@ import CarbonMetrics from '@/components/analysis/CarbonMetrics'
 import ValidationStatus from '@/components/analysis/ValidationStatus'
 import { Button } from '@/components/ui/button'
 import { api } from '@/lib/api'
+import { saveFarm, generateFarmId, calculateFarmStatus, calculateAreaHa, StoredFarm } from '@/lib/farmStore'
 import type { GeoJSONPolygon, NDVIResult, DeforestationResult, CarbonResult } from '@/types'
 
 // Dynamic import for MapViewer to avoid SSR issues with mapbox
@@ -96,13 +97,46 @@ export default function NewFarmPage() {
   }
 
   const handleSave = async () => {
-    if (!result) return
+    if (!result || !polygon) return
     setSaving(true)
     try {
-      // In production, this would call an API to save the farm
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      // Extract coordinates for area calculation
+      let coordinates: number[][][]
+      if ('geometry' in polygon && polygon.geometry) {
+        coordinates = polygon.geometry.coordinates
+      } else if ('coordinates' in polygon) {
+        coordinates = (polygon as { coordinates: number[][][] }).coordinates
+      } else {
+        throw new Error('Invalid polygon format')
+      }
+
+      const deforestationPercent = result.analysis.deforestation?.deforestationPercent || 0
+      const isCompliant = deforestationPercent < 5
+
+      const farmToSave: StoredFarm = {
+        id: generateFarmId(),
+        name: farmData.name || result.name || 'Finca Sin Nombre',
+        owner: farmData.owner || result.owner || 'Propietario Desconocido',
+        location: 'Colombia',
+        areaHa: result.analysis.carbon?.areaHa || calculateAreaHa(coordinates),
+        lastAnalysis: new Date().toISOString().split('T')[0],
+        createdAt: new Date().toISOString().split('T')[0],
+        status: calculateFarmStatus(deforestationPercent),
+        eudrValidationStatus: isCompliant ? 'approved' : 'rejected',
+        nftStatus: 'not_minted',
+        baselineVerified: !!result.analysis.carbon,
+        polygon: polygon,
+        analysis: {
+          ndvi: result.analysis.ndvi,
+          deforestation: result.analysis.deforestation,
+          carbon: result.analysis.carbon,
+        },
+      }
+
+      saveFarm(farmToSave)
       setSaved(true)
     } catch (err) {
+      console.error('Error saving farm:', err)
       setError('Error al guardar la finca')
     } finally {
       setSaving(false)

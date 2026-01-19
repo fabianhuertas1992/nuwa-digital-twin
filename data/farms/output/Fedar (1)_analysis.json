@@ -188,10 +188,10 @@
       "std": 0.13,
       "min": 0.128,
       "max": 0.921,
-      "imageUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/59b7a97265b25a5efdd1a9c3a50c3519-f8cfba38dd0a04ff614061d3d832340e:getPixels",
+      "imageUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/580ab48fc78c48e0d29cc343f73e02db-bf31ada9c2adf54570fa04ff7f62e8bf:getPixels",
       "imagesUsed": 5,
       "dateRange": "2024-01-01 to 2024-12-31",
-      "timestamp": "2026-01-14T11:23:11.563638"
+      "timestamp": "2026-01-16T10:53:23.855604"
     },
     "deforestation": {
       "deforestationPercent": 2.6,
@@ -201,11 +201,11 @@
       "historicalImages": [
         {
           "year": 2024,
-          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/cdb8316662352b84a6a76c7f22dbfef0-395ae44ce2b362d140f5bf8c51db1fb8:getPixels"
+          "url": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/e40d7509108774224721f3e57e358d17-4c0fc9d3f0226160192188d2634727e7:getPixels"
         }
       ],
-      "changeDetectionUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/4d4f8e5f75875428eff3af6f2c539b8d-d66e36c77062d1837146f67b711fddab:getPixels",
-      "analysisDate": "2026-01-14T11:23:16.087211",
+      "changeDetectionUrl": "https://earthengine.googleapis.com/v1/projects/nuwa-digital-twin/thumbnails/4d4f8e5f75875428eff3af6f2c539b8d-8ba5d85c4e52a55aa2ce2b430f1b86eb:getPixels",
+      "analysisDate": "2026-01-16T10:53:28.951589",
       "methodology": "Hansen GFC + Sentinel-2 validation",
       "periodAnalyzed": "2021 - 2026"
     },
@@ -218,7 +218,7 @@
       "methodology": "satellite",
       "confidence": "medium",
       "treesAnalyzed": 0,
-      "calculationDate": "2026-01-14T11:23:17.456020",
+      "calculationDate": "2026-01-16T10:55:38.087232",
       "equation": "Chave et al. 2014 (pantropical)",
       "verraMethodology": "VM0042",
       "breakdown": {
@@ -227,5 +227,5 @@
       }
     }
   },
-  "generatedAt": "2026-01-14T11:23:17.456106"
+  "generatedAt": "2026-01-16T10:55:38.087361"
 }

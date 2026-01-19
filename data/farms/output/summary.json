@@ -1,10 +1,10 @@
 {
-  "processedAt": "2026-01-14T11:23:56.853287",
-  "totalFarms": 5,
-  "successfulAnalyses": 5,
+  "processedAt": "2026-01-16T10:56:16.562698",
+  "totalFarms": 6,
+  "successfulAnalyses": 6,
   "failedAnalyses": 0,
-  "totalArea": 109.96000000000001,
-  "totalCarbon": 15751.539999999999,
+  "totalArea": 116.35000000000001,
+  "totalCarbon": 16411.87,
   "eudrCompliant": 3,
   "results": [
     {
@@ -45,6 +45,19 @@
       "deforestationPercent": 7.08,
       "carbonTCO2e": 4130.37,
       "outputFile": "data/farms/output/Granja_paraiso (1)_analysis.json"
+    },
+    {
+      "filename": "La_Playa.geojson",
+      "success": true,
+      "error": null,
+      "name": "La_Playa",
+      "farmId": "farm-la_playa",
+      "areaHa": 6.39,
+      "ndvi": 0.849,
+      "eudrCompliant": false,
+      "deforestationPercent": 5.61,
+      "carbonTCO2e": 660.33,
+      "outputFile": "data/farms/output/La_Playa_analysis.json"
     },
     {
       "filename": "Patio Bonito (1).geojson",

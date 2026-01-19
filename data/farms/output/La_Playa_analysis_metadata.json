@@ -1,0 +1,55 @@
+{
+  "cardanoNFT": {
+    "721": {
+      "POLICY_ID_PLACEHOLDER": {
+        "farm-la_playa": {
+          "name": "Digital Twin - La_Playa",
+          "description": "Verified carbon baseline and EUDR compliance certificate for La_Playa",
+          "image": "ipfs://bafkreihpsnhwlufucbu7dr5mmsgi67qxadwdwlevg7zyh4jclvmniulbhe",
+          "mediaType": "application/json",
+          "files": [
+            {
+              "name": "Farm Analysis Data",
+              "mediaType": "application/json",
+              "src": "ipfs://bafkreihpsnhwlufucbu7dr5mmsgi67qxadwdwlevg7zyh4jclvmniulbhe"
+            }
+          ],
+          "attributes": {
+            "Farm ID": "farm-la_playa",
+            "Owner": null,
+            "Location": "{}",
+            "Baseline Carbon (tCO2e)": 660.33,
+            "NDVI Mean": 0.849,
+            "EUDR Compliant": "No",
+            "Deforestation %": 5.61,
+            "Area (ha)": 6.3862,
+            "Methodology": "VM0042",
+            "Analysis Date": "2026-01-16T10:55:58.117237",
+            "IPFS Hash": "bafkreihpsnhwlufucbu7dr5mmsgi67qxadwdwlevg7zyh4jclvmniulbhe"
+          }
+        }
+      }
+    }
+  },
+  "simple": {
+    "type": "FarmDigitalTwin",
+    "version": "1.0",
+    "farmId": "farm-la_playa",
+    "name": "La_Playa",
+    "owner": null,
+    "location": {},
+    "metrics": {
+      "baselineCarbonTCO2e": 660.33,
+      "ndviMean": 0.849,
+      "eudrCompliant": false,
+      "deforestationPercent": 5.61,
+      "areaHa": 6.3862
+    },
+    "ipfs": {
+      "analysisHash": "bafkreihpsnhwlufucbu7dr5mmsgi67qxadwdwlevg7zyh4jclvmniulbhe",
+      "analysisUrl": "https://gateway.pinata.cloud/ipfs/bafkreihpsnhwlufucbu7dr5mmsgi67qxadwdwlevg7zyh4jclvmniulbhe"
+    },
+    "verificationDate": "2026-01-16T11:11:08.604196",
+    "methodology": "Verra VM0042"
+  }
+}
